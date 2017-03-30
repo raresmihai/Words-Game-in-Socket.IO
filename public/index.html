@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Words game</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+  </head>
+
+  <body>
+    <ul class="pages">
+      <li class="language page">
+        <div class="choser">
+          <input class="lng-image" type="image" src="ro.png" onclick="roClicked();"/>
+          <input class="lng-image" type="image" src="uk.png" onclick="engClicked();" />
+        </div>
+      </li>
+      <li class="login page" style="display:none">
+        <div class="form" id="user-form">
+          <h3 class="title" id="nickname-q">What's your nickname?</h3>
+          <input type="text" id="userInput" class="usernameInput" maxlength="14" />
+          <br /> <br />
+          <p id="loginInfo" style="display: none; color: red"></p>
+        </div>
+      </li>
+      <li class="main page" style="display:none">
+              <div class="row">
+                  <div class="col-md-8">
+                    <div class="panel panel-pheasant panel-primary">
+                      <div class="panel-heading">
+                        <h3 class="panel-title" id="pnlTitle">Joaca FAZAN</h3>
+                      </div>
+                      <div class="panel-body panel-body-pheasant">
+                        <div class="jumbotron jumbotron-pheasant vertical-center">
+                          <div class="container container-pheasant text-center">
+                            <div id="roundEnd">
+                                <h3 id="ending"></h3>
+                                <h3 id="endingWord"></h3>
+                            </div>
+                            <br />
+                            <div id="wordInfo">
+                              <h3 id="lastWordInfo"></h3>
+                              <h3 id="lastWord"></h3>
+                            </div>
+                            <br />
+                            <h4 id="invalid"></h4>
+                            <br />
+                          </div>
+                          <div class="input-group" id="word-form">
+                            <span class="input-group-addon input-group-addon-pheasant" id="first2"></span>
+                            <input maxlength="25" type="text" class="form-control form-control-pheasant" aria-describedby="first2" id="word">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col-md-4">
+                    <ul class="nav nav-tabs">
+                      <li class="active"><a data-toggle="tab" href="#players" id="players-header">Jucatori</a></li>
+                      <li><a data-toggle="tab" href="#chat">Chat</a></li>
+                      <li><a data-toggle="tab" href="#rules" id="rules-header">Reguli</a></li>
+                    </ul>
+                    <div class="tab-content">
+                      <div id="players" class="tab-pane fade in active">
+                        <table id="usersTable">
+                          <thead id="tableHead"></thead>
+                          <tbody id="tableBody"></tbody>  
+                        </table>
+                      </div>
+                      <div id="chat" class="tab-pane fade">
+                        <div class="chatArea">
+                          <ul id="messages"></ul>
+                        </div>
+                        <div  id="input-form">
+                          <input class ="form-control" maxlength="1000" type="text" id="m">
+                        </div>
+                      </div>
+                      <div id="rules" class="tab-pane fade">
+                        <h3 id="ruleTitle">Jocul Fazan</h3>
+                        <p id="mainRule">Formeaza un cuvant cu ultimele 2 litere ale cuvantului precedent pentru a acumula puncte!</p>
+                        <h4 id="rulePoints">Punctaj</h4>
+                        <p id="mainPoints">1 punct pentru fiecare litera a cuvantului</p>
+                        <p id="closingPoints">20 de puncte pentru inchidere</p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+      </li>
+  </ul>
+
+  </body>
+</html>
